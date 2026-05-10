@@ -1,33 +1,9 @@
 "use client";
 
 import { motion } from "motion/react";
+import resumeData from "@/ResumeData.json";
 
-const ENTRIES = [
-  {
-    title: "The Craft of Interaction Design",
-    time: "6 min read",
-    date: "Apr 12, 2026",
-    bg: "from-[#1a1a2e] to-[#0f1923]",
-  },
-  {
-    title: "Building Systems That Scale With Intent",
-    time: "8 min read",
-    date: "Mar 28, 2026",
-    bg: "from-[#1f2937] to-[#111827]",
-  },
-  {
-    title: "Typography as the Voice of Interface",
-    time: "5 min read",
-    date: "Mar 10, 2026",
-    bg: "from-[#2d1b1b] to-[#1a1212]",
-  },
-  {
-    title: "Why Motion Makes Software Feel Alive",
-    time: "7 min read",
-    date: "Feb 20, 2026",
-    bg: "from-[#1a2e1a] to-[#0f1f0f]",
-  },
-];
+const ENTRIES = resumeData.journal;
 
 const FADE_UP = {
   initial: { opacity: 0, y: 30 },

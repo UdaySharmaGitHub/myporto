@@ -1,37 +1,9 @@
 "use client";
 
 import { motion } from "motion/react";
+import resumeData from "@/ResumeData.json";
 
-const PROJECTS = [
-  {
-    title: "Automotive Motion",
-    span: "md:col-span-7",
-    aspect: "aspect-[16/10]",
-    bg: "from-[#0f172a] via-[#1e3a5f] to-[#0a0a0f]",
-    accent: "#1e40af",
-  },
-  {
-    title: "Urban Architecture",
-    span: "md:col-span-5",
-    aspect: "aspect-[4/3]",
-    bg: "from-[#1a1a1a] via-[#2d2d2d] to-[#111]",
-    accent: "#374151",
-  },
-  {
-    title: "Human Perspective",
-    span: "md:col-span-5",
-    aspect: "aspect-[4/3]",
-    bg: "from-[#2d1b1b] via-[#3d2626] to-[#1a1212]",
-    accent: "#7f1d1d",
-  },
-  {
-    title: "Brand Identity",
-    span: "md:col-span-7",
-    aspect: "aspect-[16/10]",
-    bg: "from-[#0a0a0a] via-[#1a1a2e] to-[#0f1923]",
-    accent: "#0f3460",
-  },
-];
+const PROJECTS = resumeData.projects;
 
 const FADE_UP = {
   initial: { opacity: 0, y: 30 },

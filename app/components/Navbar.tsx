@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import resumeData from "@/ResumeData.json";
 
 const NAV_LINKS = ["Home", "Work", "Resume"];
 
@@ -44,7 +45,7 @@ export default function Navbar() {
           <span className="absolute inset-0 rounded-full accent-gradient group-hover:[background:linear-gradient(270deg,#89AACC_0%,#4E85BF_100%)] transition-all duration-300" />
           <span className="absolute inset-[2px] rounded-full bg-bg flex items-center justify-center">
             <span className="font-display italic text-[13px] text-text-primary leading-none">
-              JA
+              {resumeData.personal.initials}
             </span>
           </span>
         </button>
@@ -73,7 +74,7 @@ export default function Navbar() {
 
         {/* Say hi button */}
         <a
-          href="mailto:hello@michaelsmith.com"
+          href={`mailto:${resumeData.personal.email}`}
           className="relative group text-xs sm:text-sm rounded-full px-3 sm:px-4 py-1.5 sm:py-2 text-muted hover:text-text-primary transition-colors duration-200"
         >
           {/* Gradient border on hover */}

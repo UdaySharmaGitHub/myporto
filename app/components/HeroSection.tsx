@@ -3,10 +3,10 @@
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { gsap } from "gsap";
+import resumeData from "@/ResumeData.json";
 
-const HLS_SRC =
-  "https://stream.mux.com/Aa02T7oM1wH5Mk5EEVDYhbZ1ChcdhRsS2m1NYyx4Ua1g.m3u8";
-const ROLES = ["Creative", "Fullstack", "Founder", "Scholar"];
+const HLS_SRC = resumeData.video.hlsSrc;
+const ROLES = resumeData.personal.roles;
 
 export default function HeroSection() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -91,14 +91,14 @@ export default function HeroSection() {
       <div className="relative z-10 flex flex-col items-center text-center px-6">
         {/* Eyebrow */}
         <p className="blur-in text-xs text-muted uppercase tracking-[0.3em] mb-8">
-          COLLECTION &apos;26
+          COLLECTION {resumeData.personal.collection}
         </p>
 
         {/* Name */}
         <h1
           className="name-reveal text-6xl md:text-8xl lg:text-9xl font-display italic leading-[0.9] tracking-tight text-text-primary mb-6"
         >
-          Michael Smith
+          {resumeData.personal.name}
         </h1>
 
         {/* Role line */}
@@ -116,13 +116,12 @@ export default function HeroSection() {
               {ROLES[roleIndex]}
             </motion.span>
           </AnimatePresence>{" "}
-          lives in Chicago.
+          lives in {resumeData.personal.location}.
         </p>
 
         {/* Description */}
         <p className="blur-in text-sm md:text-base text-muted max-w-md mb-12">
-          Designing seamless digital interactions by focusing on the unique
-          nuances which bring systems to life.
+          {resumeData.personal.bio}
         </p>
 
         {/* CTA Buttons */}
@@ -144,7 +143,7 @@ export default function HeroSection() {
 
           {/* Reach out */}
           <a
-            href="mailto:hello@michaelsmith.com"
+            href={`mailto:${resumeData.personal.email}`}
             className="relative group rounded-full text-sm px-7 py-3.5 border-2 border-stroke bg-bg text-text-primary transition-transform duration-150 hover:scale-105 active:scale-95"
           >
             <span className="absolute inset-[-2px] rounded-full opacity-0 group-hover:opacity-100 accent-gradient-animated transition-opacity duration-300" />

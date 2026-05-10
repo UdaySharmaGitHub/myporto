@@ -2,17 +2,11 @@
 
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
+import resumeData from "@/ResumeData.json";
 
-const HLS_SRC =
-  "https://stream.mux.com/Aa02T7oM1wH5Mk5EEVDYhbZ1ChcdhRsS2m1NYyx4Ua1g.m3u8";
-
-const MARQUEE_TEXT = "BUILDING THE FUTURE • ";
-const SOCIALS = [
-  { label: "Twitter", href: "https://twitter.com" },
-  { label: "LinkedIn", href: "https://linkedin.com" },
-  { label: "Dribbble", href: "https://dribbble.com" },
-  { label: "GitHub", href: "https://github.com" },
-];
+const HLS_SRC = resumeData.video.hlsSrc;
+const MARQUEE_TEXT = resumeData.footer.marqueeText;
+const SOCIALS = resumeData.social;
 
 export default function FooterSection() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -93,14 +87,14 @@ export default function FooterSection() {
               Get in touch
             </span>
             <h2 className="text-4xl md:text-6xl lg:text-7xl font-display italic text-text-primary leading-tight">
-              Let&apos;s work together
+              {resumeData.footer.ctaTitle}
             </h2>
             <a
-              href="mailto:hello@michaelsmith.com"
+              href={`mailto:${resumeData.personal.email}`}
               className="relative group inline-flex items-center gap-3 rounded-full border-2 border-stroke px-8 py-4 text-base text-muted hover:text-text-primary transition-colors duration-200"
             >
               <span className="absolute inset-[-2px] rounded-full opacity-0 group-hover:opacity-100 accent-gradient-animated transition-opacity duration-300" />
-              <span className="relative z-10">hello@michaelsmith.com ↗</span>
+              <span className="relative z-10">{resumeData.personal.email} ↗</span>
             </a>
           </div>
 
@@ -127,13 +121,13 @@ export default function FooterSection() {
             {/* Available indicator */}
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse-dot" />
-              <span className="text-xs text-muted">Available for projects</span>
+              <span className="text-xs text-muted">{resumeData.personal.availabilityText}</span>
             </div>
           </div>
 
           {/* Copyright */}
           <p className="text-center text-xs text-muted/40 mt-8">
-            © 2026 Michael Smith. Crafted with intent.
+            © {resumeData.personal.copyrightYear} {resumeData.personal.name}. Crafted with intent.
           </p>
         </div>
       </div>

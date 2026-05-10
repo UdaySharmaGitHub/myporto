@@ -1,12 +1,9 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import resumeData from "@/ResumeData.json";
 
-const STATS = [
-  { value: 20, suffix: "+", label: "Years Experience" },
-  { value: 95, suffix: "+", label: "Projects Done" },
-  { value: 200, suffix: "%", label: "Satisfied Clients" },
-];
+const STATS = resumeData.stats;
 
 function StatCounter({
   value,

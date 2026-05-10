@@ -4,41 +4,11 @@ import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { motion } from "motion/react";
+import resumeData from "@/ResumeData.json";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const EXPLORATIONS = [
-  {
-    bg: "from-[#0f172a] via-[#1e3a5f] to-[#0a0a1f]",
-    accent: "#3b82f6",
-    rotation: -3,
-  },
-  {
-    bg: "from-[#2d1b1b] via-[#7f1d1d] to-[#1a0a0a]",
-    accent: "#ef4444",
-    rotation: 2,
-  },
-  {
-    bg: "from-[#1a2e1a] via-[#166534] to-[#0a1a0a]",
-    accent: "#22c55e",
-    rotation: -2,
-  },
-  {
-    bg: "from-[#1f1a2e] via-[#4c1d95] to-[#0a0a1a]",
-    accent: "#a855f7",
-    rotation: 3,
-  },
-  {
-    bg: "from-[#1a1a0a] via-[#713f12] to-[#0f0f00]",
-    accent: "#f59e0b",
-    rotation: -1,
-  },
-  {
-    bg: "from-[#0a1a1a] via-[#164e63] to-[#0a0f0f]",
-    accent: "#06b6d4",
-    rotation: 2,
-  },
-];
+const EXPLORATIONS = resumeData.explorations;
 
 interface LightboxItem {
   bg: string;
@@ -209,7 +179,7 @@ export default function ExplorationsSection() {
               Experiments in form, color, and motion outside client work.
             </p>
             <a
-              href="https://dribbble.com"
+              href={resumeData.social.find((s) => s.label === "Dribbble")?.href ?? "#"}
               target="_blank"
               rel="noopener noreferrer"
               className="relative group inline-flex items-center gap-2 rounded-full border border-stroke px-5 py-2.5 text-sm text-muted hover:text-text-primary transition-colors duration-200"
